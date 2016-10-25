@@ -21,6 +21,11 @@ RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get purge -y docker-engine && \
     apt-get install docker-engine=${docker_version}-0~jessie
 
+# Install kubectl
+RUN curl -O https://storage.googleapis.com/bin.kuar.io/linux/kubectl \
+    && chmod +x kubectl \
+    && sudo cp kubectl /usr/local/bin/kubectl
+
 # Give the jenkins user sudo privileges in order to be able to run Docker commands inside the container.
 # see: http://container-solutions.com/running-docker-in-jenkins-in-docker/
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
