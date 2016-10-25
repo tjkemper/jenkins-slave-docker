@@ -22,7 +22,7 @@ RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get install docker-engine=${docker_version}-0~jessie
 
 # Install kubectl
-RUN curl -O https://storage.googleapis.com/bin.kuar.io/linux/kubectl \
+RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl \
     && chmod +x kubectl \
     && sudo cp kubectl /usr/local/bin/kubectl
 
