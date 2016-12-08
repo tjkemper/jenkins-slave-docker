@@ -12,9 +12,15 @@ spec:
           - name: "JENKINS_URL"
             value: "http://100.68.13.101:80"
         volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
+        - name: docker-sock
+          mountPath: /var/run/docker.sock 
+        - name: "config"
+          mountPath: "/home/jenkins/.kube/"
+          readOnly: true
     volumes:
       - name: docker-sock
         hostPath:
           path: /var/run/docker.sock
+      - name: "config"
+        secret:
+          secretName: "config"
