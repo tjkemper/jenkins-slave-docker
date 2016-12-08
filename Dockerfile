@@ -31,5 +31,5 @@ RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 ### drop back to the regular jenkins user - good practice
-USER jenkins
+# USER jenkins
 
